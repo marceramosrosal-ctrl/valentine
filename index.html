@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>be my valentine</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffe6eb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    button {
+      font-size: 40px;
+      padding: 14px 28px;
+      margin: 10px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background-color: #d6d6d6;
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    <h1 id="question">Cielo, since it's February in a few days, will you be my valentine? 💕</h1>
+
+    <img
+      id="gif"
+      src="minion.gif"
+      alt="minion heart"
+      width="300"
+      style="margin-bottom: 20px;"
+    />
+
+    <br>
+
+    <button id="yes" onclick="sayYes()">Yes</button>
+    <button id="no" onclick="sayNo()">No</button>
+  </div>
+
+  <script>
+    let noCount = 0;
+    let yesSize = 20;
+
+    const noTexts = [
+      "Are you sure?",
+      "Are you sure you’re sure?",
+      "Like… really sure?",
+      "Ma’am, please",
+      "Pleaseeeee",
+      "Love, I´m on my knees",
+      "PLEASEEEE",
+      "I’m gonna cry",
+      "I am literally begging",
+      "LOVE, COULD YOU PLEASE HAVE MERCY",
+      "Por llegar a este "no" me debes 2 besos",
+      "Last chance, please say yes",
+      "Please please please please",
+      "I have nothing left",
+      "PLEASE SAY YES",
+      "LAST CHANCE PLEASE",
+      "Okay this is the last last chance",
+      "Please. Just… please.",
+      "I cannot take another no",
+      "PLEASE SAY YES"
+    ];
+
+    function sayNo() {
+      const noButton = document.getElementById("no");
+      const yesButton = document.getElementById("yes");
+
+      noCount++;
+
+      const textIndex = Math.min(noCount, noTexts.length - 1);
+      noButton.textContent = noTexts[textIndex];
+
+      yesSize += 14;
+      yesButton.style.fontSize = yesSize + "px";
+      yesButton.style.padding = (yesSize / 1.8) + "px";
+    }
+
+    function sayYes() {
+      document.body.innerHTML = `
+        <div>
+          <h1> YAAAAY (¿hasta cuántos "no" llegaste?) </h1>
+          <img src="minion.gif" width="300">
+          <p>
+Te tengo una canción de mí para ti en esta ocasión, se llama:<br><br>
+"Bonita Bonita" – 4AMTapes (ya está en la playlist) se me figura cuando hablo como muy rápido a causa de emoción (usualmente viene de nervios causados por ti) <br><br>
+(por cierto, si te parece, SOLO si te parece, pueden ser 2 besos por canción, luego arreglamos cómo)<br><br>
+
+</p>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
